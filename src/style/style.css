@@ -3,7 +3,8 @@
 /* stylelint-disable alpha-value-notation */
 /* stylelint-disable color-function-notation */
 
-@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap';
+@import '~normalize.css';
+@import './font-awesome/css/font-awesome.min.css';
 
 * {
   margin: 0;
@@ -16,7 +17,7 @@ li {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: sans-serif;
   background: #3c87ff;
   font-size: 18px;
 }
@@ -66,6 +67,10 @@ body {
   color: #7c7d80;
 }
 
+.result-box__button:hover {
+  color: #545557;
+}
+
 .settings {
   padding: 0 35px;
 }
@@ -91,10 +96,20 @@ body {
 .settings__button {
   height: 35px;
   width: 100%;
+  transform: scale(1);
+  transition: 0.1s;
   outline: none;
   border: 0;
   border-radius: 4px;
   background: #3c87ff;
   cursor: pointer;
   color: #fff;
+}
+
+.settings__button:hover {
+  background: #2274f8;
+}
+
+.settings__button:active {
+  transform: scale(0.97);
 }

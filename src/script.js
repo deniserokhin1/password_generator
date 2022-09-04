@@ -1,7 +1,23 @@
+import './style/style.css';
+import Swal from 'sweetalert2';
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: false,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer);
+    toast.addEventListener('mouseleave', Swal.resumeTimer);
+  },
+});
+
 const buttonGeneratorPassword = document.querySelector('.settings__button');
 const checkboxes = document.querySelectorAll('.checkbox');
 const password = document.querySelector('.result-box__input');
 const lengthPass = document.querySelector('.settings-item__input');
+const buttonCoppy = document.querySelector('.button-coppy');
 
 const resultArr = [];
 
@@ -16,6 +32,22 @@ buttonGeneratorPassword.addEventListener('click', () => {
   getFunction();
 });
 
+window.addEventListener('keydown', (event) => {
+  event.key === 'Enter' ? getFunction() : false;
+});
+
+buttonCoppy.addEventListener('click', () => {
+  if (!password.value) {
+    return;
+  }
+  navigator.clipboard.writeText(password.value);
+  Toast.fire({
+    icon: 'success',
+    title: 'Пароль скопирован',
+  });
+  password.value = '';
+});
+
 function getFunction() {
   const arrCheckboxTrue = [];
 
@@ -23,6 +55,7 @@ function getFunction() {
     checkbox.checked ? arrCheckboxTrue.push(Number(checkbox.id)) : false;
   });
 
+  arrCheckboxTrue.sort(() => Math.random() - 0.5);
   for (let i = 0; i < lengthPass.value; i++) {
     arrCheckboxTrue.forEach((id) => {
       id in functions ? resultArr.push(functions[id]()) : false;
@@ -32,11 +65,7 @@ function getFunction() {
 }
 
 const passwordGenerator = () => {
-  password.value = resultArr
-    .slice(0, lengthPass.value)
-    .sort(() => Math.random() - 0.5)
-    .join('');
-
+  password.value = resultArr.slice(0, lengthPass.value).join('');
   resultArr.length = 0;
 };
 
