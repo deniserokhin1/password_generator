@@ -1,0 +1,10 @@
+/* stylelint-disable selector-class-pattern */
+@media (max-width: 435px) {
+  .result-box__button {
+    display: none;
+  }
+
+  .copy__button_show {
+    display: block;
+  }
+}

@@ -1,4 +1,5 @@
 import './style/style.css';
+import './style/media.css';
 import Swal from 'sweetalert2';
 
 const Toast = Swal.mixin({
@@ -17,7 +18,8 @@ const buttonGeneratorPassword = document.querySelector('.settings__button');
 const checkboxes = document.querySelectorAll('.checkbox');
 const password = document.querySelector('.result-box__input');
 const lengthPass = document.querySelector('.settings-item__input');
-const buttonCoppy = document.querySelector('.button-coppy');
+const buttonCoppyUp = document.querySelector('.button-coppy');
+const buttonCoppyDown = document.querySelector('.copy__button');
 
 const resultArr = [];
 
@@ -36,7 +38,7 @@ window.addEventListener('keydown', (event) => {
   event.key === 'Enter' ? getFunction() : false;
 });
 
-buttonCoppy.addEventListener('click', () => {
+buttonCoppyUp.addEventListener('click', () => {
   if (!password.value) {
     return;
   }
@@ -46,6 +48,16 @@ buttonCoppy.addEventListener('click', () => {
     title: 'Пароль скопирован',
   });
   password.value = '';
+});
+
+buttonCoppyDown.addEventListener('click', () => {
+  navigator.clipboard.writeText(password.value);
+  Toast.fire({
+    icon: 'success',
+    title: 'Пароль скопирован',
+  });
+  password.value = '';
+  buttonCoppyDown.classList.remove('copy__button_show');
 });
 
 function getFunction() {
@@ -67,6 +79,7 @@ function getFunction() {
 const passwordGenerator = () => {
   password.value = resultArr.slice(0, lengthPass.value).join('');
   resultArr.length = 0;
+  buttonCoppyDown.classList.add('copy__button_show');
 };
 
 function getRandomLower() {
