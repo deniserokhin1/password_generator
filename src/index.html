@@ -1,58 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-</head>
-
-<body>
-  <section>
-    <div class="container">
-      <div class="generator_box">
-        <h2 class="generator_box__title">Генератор пароля</h2>
-        <div class="result-box">
-          <button class="result-box__button">
-            <i class="result-box__icon fa fa-clone button-coppy" aria-hidden="true"></i>
-          </button>
-          <input class="result-box__input" type="text" readonly="readonly" />
-        </div>
-        <div class="settings">
-          <ul class="settings__list">
-            <li class="settings-item">
-              <label class="settings-item__label" for="4">
-                Длина пароля
-              </label>
-              <input class="settings-item__input" type="number" min="4" max="20" value="10" id="4" />
-            </li>
-            <li class="settings-item">
-              <label class="settings-item__label" for="0">
-                Маленькие буквы
-              </label>
-              <input class="settings-item__input checkbox" type="checkbox" id="0" data-function="getRandomLower" />
-            </li>
-            <li class="settings-item">
-              <label class="settings-item__label" for="1">
-                Большие буквы
-              </label>
-              <input class="settings-item__input checkbox" type="checkbox" id="1" data-function="getRandomUpper" />
-            </li>
-            <li class="settings-item">
-              <label class="settings-item__label" for="2"> Цифры </label>
-              <input class="settings-item__input checkbox" type="checkbox" id="2" data-function="getRandomNumber" />
-            </li>
-            <li class="settings-item">
-              <label class="settings-item__label" for="3"> Символы </label>
-              <input class="settings-item__input checkbox" type="checkbox" id="3" data-function="getRandomSymbol" />
-            </li>
-          </ul>
-          <button class="settings__button">Получить пароль</button>
+  <body>
+    <section>
+      <div class="container">
+        <div class="generator_box">
+          <h2 class="generator_box__title">Генератор пароля</h2>
+          <div class="result-box">
+            <button class="result-box__button">
+              <i
+                class="result-box__icon fa fa-clone button-coppy"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <input class="result-box__input" type="text" readonly="readonly" />
+          </div>
+          <div class="settings">
+            <ul class="settings__list">
+              <li class="settings-item">
+                <label class="settings-item__label" for="4">
+                  Длина пароля
+                </label>
+                <input
+                  class="settings-item__input"
+                  type="number"
+                  min="4"
+                  max="20"
+                  value="10"
+                  id="4"
+                />
+              </li>
+              <li class="settings-item">
+                <label class="settings-item__label" for="0">
+                  Маленькие буквы
+                </label>
+                <input
+                  class="settings-item__input checkbox"
+                  type="checkbox"
+                  id="0"
+                  data-function="getRandomLower"
+                />
+              </li>
+              <li class="settings-item">
+                <label class="settings-item__label" for="1">
+                  Большие буквы
+                </label>
+                <input
+                  class="settings-item__input checkbox"
+                  type="checkbox"
+                  id="1"
+                  data-function="getRandomUpper"
+                />
+              </li>
+              <li class="settings-item">
+                <label class="settings-item__label" for="2"> Цифры </label>
+                <input
+                  class="settings-item__input checkbox"
+                  type="checkbox"
+                  id="2"
+                  data-function="getRandomNumber"
+                />
+              </li>
+              <li class="settings-item">
+                <label class="settings-item__label" for="3"> Символы </label>
+                <input
+                  class="settings-item__input checkbox"
+                  type="checkbox"
+                  id="3"
+                  data-function="getRandomSymbol"
+                />
+              </li>
+            </ul>
+            <button class="settings__button">Получить пароль</button>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</body>
-
+    </section>
+  </body>
 </html>
